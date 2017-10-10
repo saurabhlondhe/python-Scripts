@@ -32,11 +32,6 @@ def show_todo():
 def set_alias():
 	cmd="cd && "+"echo 'alias todo=python3 /etc/todo/todo.py' >> .bashrc"
 def reset():
-	if os.path.isdir("/etc/todo")==True:
-		os.system("rm -rf /etc/todo/* && cat todo.py > /etc/todo/todo.py")
-	else:
-		os.system("mkdir /etc/todo && cat todo.py > /etc/todo/")
-	os.system(cmd)
 	f=open('.todo.txt','w')
 	f.write("***************************************************\n")
 	f.write("todo ID\t Time\t\tDate\t\t Task\n")
