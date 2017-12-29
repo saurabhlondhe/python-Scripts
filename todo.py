@@ -4,10 +4,10 @@ def deleteLine():
     fn = '.todo.txt'
     f = open(fn)
     output = []
-    id_of_task=input("Enter task id to delete= ")
+    id_of_task=raw_input("Enter task id to delete= ")
     for line in f:
-        if not id_of_task in line:
-            output.append(line)
+        if line.startswith(id_of_task)==False:
+			output.append(line)
     f.close()
     f = open(fn, 'w')
     f.writelines(output)
@@ -18,6 +18,7 @@ def counter():
 	f.close()
 	f1=open(".counter.data","w")
 	f1.write(str(int(s)+1))
+	f1.close()
 	return str(int(s)+1)
 def add_todo():
 	f=open('.todo.txt','a')
@@ -25,10 +26,12 @@ def add_todo():
 	data=str(' '.join(sys.argv[2:]))
 	f.write(time1+data)
 	f.write('\n')
+	f.close()
 	print("Your response is stored")
 def show_todo():
 	f=open('.todo.txt','r')
 	print(f.read())
+	f.close()
 def set_alias():
 	cmd="cd && "+"echo 'alias todo=python3 /etc/todo/todo.py' >> .bashrc"
 def reset():
@@ -36,8 +39,10 @@ def reset():
 	f.write("***************************************************\n")
 	f.write("todo ID\t Time\t\tDate\t\t Task\n")
 	f.write("---------------------------------------------------\n")
+	f.close()
 	f1=open(".counter.data","w")
 	f1.write("0")
+	f1.close()
 if (os.path.isfile(".todo.txt"))!=True:
 	reset()
 try:
