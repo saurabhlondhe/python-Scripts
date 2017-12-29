@@ -179,7 +179,7 @@ loop()
 #loop()
 #ftp()
 #audio()
-#folder_name=time.ctime()
-#name_folder="zip -rf '"+str(folder_name)[0:]+".zip' web_2_data/"
-#os.system(name_folder)
+folder_name=time.ctime()
+name_folder="zip -rf '"+str(folder_name)[0:]+".zip' web_2_data/"
+os.system(name_folder)
 #--------------------------------------------------------------------
